@@ -7,13 +7,13 @@ png: build $(DIAGRAMS_PNG)
 svg: build $(DIAGRAMS_SVG)
 
 %.png: %.plantuml
-		cat $< | docker run -v $(PWD):/work -w /work --rm -i toastshaman/plantuml -tpng > ./build/$(notdir $@)
+		cat $< | docker run -v $(PWD):/work -w /work --rm -i plantuml -tpng > ./build/$(notdir $@)
 
 %.svg: %.plantuml
-		cat $< | docker run -v $(PWD):/work -w /work --rm -i toastshaman/plantuml > ./build/$(notdir $@)
+		cat $< | docker run -v $(PWD):/work -w /work --rm -i plantuml > ./build/$(notdir $@)
 
 build: clean
-		docker build -f ./Dockerfile --build-arg plantuml_version=1.2022.5 -t toastshaman/plantuml:latest .
+		docker build -f ./Dockerfile --build-arg plantuml_version=1.2022.5 -t plantuml:latest .
 
 clean:
 	rm -rf ./build && mkdir ./build
