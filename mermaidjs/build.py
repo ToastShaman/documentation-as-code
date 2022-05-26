@@ -20,5 +20,4 @@ if __name__ == "__main__":
         
         for ext in ["png", "svg"]:
             output = os.path.join(output_dir, f"{file_name_without_extension}.{ext}")
-            subprocess.check_output(f"docker run -it -v {cwd}/../:/data minlag/mermaid-cli -i /data/src/{file_name} -o /data/{output}", shell=True)
-            subprocess.check_output(f"docker run -it -v {cwd}/../:/data minlag/mermaid-cli -i /data/src/{file_name} -o /data/{output}", shell=True)
+            subprocess.check_output(f"docker run -it -v {cwd}/../:/data minlag/mermaid-cli -i /data/src/{file_name} -o /data/{output} -t dark -b white -s 3", shell=True)
