@@ -1,8 +1,8 @@
-DIAGRAMS_SRC := $(shell find . -name "*.md")
-DIAGRAMS_PNG := $(addsuffix .pdf, $(basename $(DIAGRAMS_SRC)))
+SLIDES_SRC := $(shell find . -name "*.md")
+SLIDES_PDF := $(addsuffix .pdf, $(basename $(SLIDES_SRC)))
 PWD := $(shell pwd)
 
-pdf: clean $(DIAGRAMS_PNG)
+pdf: clean $(SLIDES_PDF)
 
 %.pdf: %.md
 	docker run --rm --init -v $(PWD):/home/marp/app/ -e LANG=EN marpteam/marp-cli $< -o ./build/$(notdir $@)
