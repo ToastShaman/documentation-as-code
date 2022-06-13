@@ -1,1 +1,0 @@
-Not perfect... might be easier to use https://www.npmjs.com/package/md-to-pdf
